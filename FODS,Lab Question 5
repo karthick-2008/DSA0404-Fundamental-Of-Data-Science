@@ -1,0 +1,71 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPxvOaXsA7+QfQ+aESk7oHy",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/FODS%2CLab%20Question%205\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WM5MTGC991hm",
+        "outputId": "d4427006-7f00-4897-eec0-8dea0b340e83"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average Fuel Efficiency: 35.0 MPG\n",
+            "Percentage Improvement: 40.0 %\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import numpy as np\n",
+        "\n",
+        "# Fuel efficiency of car models (in miles per gallon)\n",
+        "fuel_efficiency = np.array([25, 35, 40, 30, 45])\n",
+        "\n",
+        "# Calculate average fuel efficiency\n",
+        "average = np.mean(fuel_efficiency)\n",
+        "\n",
+        "# Calculate percentage improvement between two car models\n",
+        "car1 = fuel_efficiency[0]\n",
+        "car2 = fuel_efficiency[1]\n",
+        "\n",
+        "percentage_improvement = ((car2 - car1) / car1) * 100\n",
+        "\n",
+        "# Display the results\n",
+        "print(\"Average Fuel Efficiency:\", average, \"MPG\")\n",
+        "print(\"Percentage Improvement:\", percentage_improvement, \"%\")\n"
+      ]
+    }
+  ]
+}
