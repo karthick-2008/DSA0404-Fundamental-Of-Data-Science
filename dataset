@@ -1,0 +1,141 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNdM3zaemsAGM309UcEeH3O",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/dataset\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aMSh1rqcwMdp",
+        "outputId": "a24872c1-1e72-402e-eddd-950b7bf6e5eb"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "=== Scenario 1: Student Performance (32 Students, 4 Subjects) ===\n",
+            "Math Average Score: 75.66\n",
+            "Science Average Score: 76.81\n",
+            "English Average Score: 69.78\n",
+            "History Average Score: 74.94\n",
+            "Subject with the Highest Average: Science (76.81)\n",
+            "\n",
+            "=== Scenario 2: Product Sales (10 Products, 30 Days of Sales) ===\n",
+            "Average price of all products sold: $252.87\n",
+            "\n",
+            "=== Scenario 3: House Data (100 Houses, Bedrooms, SqFt, Price) ===\n",
+            "Number of houses with >4 bedrooms: 44\n",
+            "Average Sale Price of houses with >4 bedrooms: $939,763.43\n",
+            "\n",
+            "=== Scenario 4: Quarterly Sales (8 Quarters of Data) ===\n",
+            "Year 1 Total Sales: $580,000\n",
+            "Year 2 Total Sales: $805,000\n",
+            "Percentage Increase from Q1 to Q8: 108.33%\n",
+            "\n",
+            "=== Scenario 5: Fuel Efficiency (50 Car Models) ===\n",
+            "Average Fuel Efficiency: 33.47 MPG\n",
+            "Model A efficiency: 28.80 MPG\n",
+            "Model B efficiency: 37.56 MPG\n",
+            "Percentage Improvement from Model A to Model B: 30.40%\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "print(\"=== Scenario 1: Student Performance (32 Students, 4 Subjects) ===\")\n",
+        "# Generate realistic random marks (between 50 and 100) for 32 students in 4 subjects\n",
+        "np.random.seed(42)\n",
+        "student_scores = np.random.randint(50, 101, size=(32, 4))\n",
+        "subjects = [\"Math\", \"Science\", \"English\", \"History\"]\n",
+        "\n",
+        "# Calculate average score for each subject (axis=0 is column-wise average)\n",
+        "subject_averages = np.mean(student_scores, axis=0)\n",
+        "for subj, avg_score in zip(subjects, subject_averages):\n",
+        "    print(f\"{subj} Average Score: {avg_score:.2f}\")\n",
+        "\n",
+        "highest_avg_idx = np.argmax(subject_averages)\n",
+        "print(f\"Subject with the Highest Average: {subjects[highest_avg_idx]} ({subject_averages[highest_avg_idx]:.2f})\\n\")\n",
+        "\n",
+        "print(\"=== Scenario 2: Product Sales (10 Products, 30 Days of Sales) ===\")\n",
+        "# Generate sales data for 10 products over 30 days\n",
+        "product_sales = np.random.uniform(10.0, 500.0, size=(10, 30))\n",
+        "\n",
+        "overall_average_price = np.mean(product_sales)\n",
+        "print(f\"Average price of all products sold: ${overall_average_price:.2f}\\n\")\n",
+        "\n",
+        "print(\"=== Scenario 3: House Data (100 Houses, Bedrooms, SqFt, Price) ===\")\n",
+        "# Generate mock house data: Column 0 (Bedrooms: 2 to 6), Column 1 (SqFt), Column 2 (Price)\n",
+        "bedrooms = np.random.randint(2, 7, size=(100, 1))\n",
+        "sqft = np.random.randint(800, 4500, size=(100, 1))\n",
+        "prices = bedrooms * 100000 + sqft * 150 + np.random.randint(-20000, 20000, size=(100, 1))\n",
+        "house_data = np.hstack((bedrooms, sqft, prices))\n",
+        "\n",
+        "# Filter houses with more than 4 bedrooms (i.e. >= 5 bedrooms)\n",
+        "filtered_houses = house_data[house_data[:, 0] > 4]\n",
+        "average_price_large_houses = np.mean(filtered_houses[:, 2])\n",
+        "print(f\"Number of houses with >4 bedrooms: {len(filtered_houses)}\")\n",
+        "print(f\"Average Sale Price of houses with >4 bedrooms: ${average_price_large_houses:,.2f}\\n\")\n",
+        "\n",
+        "print(\"=== Scenario 4: Quarterly Sales (8 Quarters of Data) ===\")\n",
+        "# Let's say we have 2 years of quarterly data (8 quarters)\n",
+        "quarterly_sales = np.array([120000, 135000, 150000, 175000, 160000, 185000, 210000, 250000])\n",
+        "\n",
+        "# Calculate total sales for Year 1 (first 4 quarters) and Year 2 (last 4 quarters)\n",
+        "year1_total = np.sum(quarterly_sales[:4])\n",
+        "year2_total = np.sum(quarterly_sales[4:])\n",
+        "\n",
+        "# Percentage increase from Q1 (index 0) to Q8 (index 7)\n",
+        "percentage_increase = ((quarterly_sales[-1] - quarterly_sales[0]) / quarterly_sales[0]) * 100\n",
+        "\n",
+        "print(f\"Year 1 Total Sales: ${year1_total:,}\")\n",
+        "print(f\"Year 2 Total Sales: ${year2_total:,}\")\n",
+        "print(f\"Percentage Increase from Q1 to Q8: {percentage_increase:.2f}%\\n\")\n",
+        "\n",
+        "print(\"=== Scenario 5: Fuel Efficiency (50 Car Models) ===\")\n",
+        "# Generate efficiency data for 50 different models\n",
+        "fuel_efficiency = np.random.uniform(15.0, 55.0, size=50)\n",
+        "\n",
+        "average_efficiency = np.mean(fuel_efficiency)\n",
+        "print(f\"Average Fuel Efficiency: {average_efficiency:.2f} MPG\")\n",
+        "\n",
+        "# Compare model at index 5 and index 45\n",
+        "model_a_mpg = fuel_efficiency[5]\n",
+        "model_b_mpg = fuel_efficiency[45]\n",
+        "improvement_percentage = ((model_b_mpg - model_a_mpg) / model_a_mpg) * 100\n",
+        "\n",
+        "print(f\"Model A efficiency: {model_a_mpg:.2f} MPG\")\n",
+        "print(f\"Model B efficiency: {model_b_mpg:.2f} MPG\")\n",
+        "print(f\"Percentage Improvement from Model A to Model B: {improvement_percentage:.2f}%\")"
+      ]
+    }
+  ]
+}
