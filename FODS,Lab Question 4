@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPE0hhXSRWxHWl6oUJvep5C",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/FODS%2CLab%20Question%204\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WM5MTGC991hm",
+        "outputId": "714dd26e-ab43-4458-b181-e5e65669ad46"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total Annual Sales: 55000\n",
+            "Percentage Increase: 80.0 %\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import numpy as np\n",
+        "\n",
+        "# Quarterly sales data\n",
+        "sales_data = np.array([10000, 12000, 15000, 18000])\n",
+        "\n",
+        "# Calculate total sales for the year\n",
+        "total_sales = np.sum(sales_data)\n",
+        "\n",
+        "# Calculate percentage increase from Q1 to Q4\n",
+        "percentage_increase = (\n",
+        "    (sales_data[3] - sales_data[0]) / sales_data[0]\n",
+        ") * 100\n",
+        "\n",
+        "# Display the results\n",
+        "print(\"Total Annual Sales:\", total_sales)\n",
+        "print(\"Percentage Increase:\", percentage_increase, \"%\")\n"
+      ]
+    }
+  ]
+}
