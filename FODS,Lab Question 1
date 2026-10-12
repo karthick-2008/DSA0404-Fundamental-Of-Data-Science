@@ -1,0 +1,92 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPwv56zorKVe8VqNfp1h0tv",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/FODS%2CLab%20Question%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JlhMB6GNxjDi",
+        "outputId": "3500ac52-c1eb-4e2d-ccc4-10a5b2edbf87"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average Marks: 81.45\n",
+            "Average Attendance: 83.56\n",
+            "Higher average: Attendance\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "marks = np.array([\n",
+        "    np.nan, 68, 71, 74, 77, 80, 83, 86, 89, np.nan,\n",
+        "    95, 98, 66, 69, 72, 75, 78, 81, np.nan, 87,\n",
+        "    90, 93, 96, 99, 67, 70, 73, np.nan, 79, 82,\n",
+        "    85, 88, 91, 94, 97, 65, np.nan, 71, 74, 77,\n",
+        "    80, 83, 86, 89, 92, np.nan, 98, 66, 69, 72,\n",
+        "    75, 78, 81, 84, np.nan, 90, 93, 96, 99, 67,\n",
+        "    70, 73, 76, np.nan, 82, 85, 88, 91, 94, 97,\n",
+        "    65, 68, np.nan, 74, 77, 80, 83, 86, 89, 92,\n",
+        "    95, np.nan, 66, 69, 72, 75, 78, 81, 84, 87,\n",
+        "    np.nan, 93, 96, 99, 67, 70, 73, 76, 79, np.nan\n",
+        "])\n",
+        "\n",
+        "attendance = np.array([\n",
+        "    74, 74, 78, 82, 86, 90, 94, 98, 72, 76,\n",
+        "    80, np.nan, 88, 92, 96, 70, 74, 78, 82, 86,\n",
+        "    90, 94, np.nan, 72, 76, 80, 84, 88, 92, 96,\n",
+        "    70, 74, 78, np.nan, 86, 90, 94, 98, 72, 76,\n",
+        "    80, 84, 88, 92, np.nan, 70, 74, 78, 82, 86,\n",
+        "    90, 94, 98, 72, 76, np.nan, 84, 88, 92, 96,\n",
+        "    70, 74, 78, 82, 86, 90, np.nan, 98, 72, 76,\n",
+        "    80, 84, 88, 92, 96, 70, 74, np.nan, 82, 86,\n",
+        "    90, 94, 98, 72, 76, 80, 84, 88, np.nan, 96,\n",
+        "    70, 74, 78, 82, 86, 90, 94, 98, 72, np.nan\n",
+        "])\n",
+        "\n",
+        "average_marks = np.nanmean(marks)\n",
+        "average_attendance = np.nanmean(attendance)\n",
+        "\n",
+        "print(\"Average Marks:\", round(average_marks, 2))\n",
+        "print(\"Average Attendance:\", round(average_attendance, 2))\n",
+        "\n",
+        "if average_marks > average_attendance:\n",
+        "    print(\"Higher average: Marks\")\n",
+        "else:\n",
+        "    print(\"Higher average: Attendance\")"
+      ]
+    }
+  ]
+}
