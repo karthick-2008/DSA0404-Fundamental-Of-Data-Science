@@ -1,0 +1,82 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP5aUw1ArZ0Tc1QJg/BNZaL",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/FODS%20lab%20question%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lfrUpoGWL9xJ",
+        "outputId": "bd23a31d-a32a-4529-d822-c98ae5934d2c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Math Average: 85.75\n",
+            "Science Average: 90.0\n",
+            "English Average: 83.75\n",
+            "History Average: 83.75\n",
+            "Subject with highest average: Science\n",
+            "Highest average score: 90.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Marks of 4 students in 4 subjects\n",
+        "# Order: Math, Science, English, History\n",
+        "student_scores = np.array([\n",
+        "    [85, 90, 78, 88],\n",
+        "    [92, 86, 80, 75],\n",
+        "    [78, 95, 85, 82],\n",
+        "    [88, 89, 92, 90]\n",
+        "])\n",
+        "\n",
+        "# Calculate average score for each subject\n",
+        "average_scores = np.mean(student_scores, axis=0)\n",
+        "\n",
+        "# Display average scores\n",
+        "subjects = [\"Math\", \"Science\", \"English\", \"History\"]\n",
+        "\n",
+        "for i in range(4):\n",
+        "    print(subjects[i], \"Average:\", average_scores[i])\n",
+        "\n",
+        "# Find the subject with the highest average\n",
+        "highest_index = np.argmax(average_scores)\n",
+        "\n",
+        "print(\"Subject with highest average:\", subjects[highest_index])\n",
+        "print(\"Highest average score:\", average_scores[highest_index])"
+      ]
+    }
+  ]
+}
