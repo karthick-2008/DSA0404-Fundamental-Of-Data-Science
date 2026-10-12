@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPAG8B985wF8Ks7OJcevTD2",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/FODS%20lab%20question%205\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 12,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lfrUpoGWL9xJ",
+        "outputId": "b423f192-8989-4cba-e3c4-5b0f19a6c87d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average fuel efficiency: 35.0 MPG\n",
+            "Percentage improvement: 20.0 %\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Fuel efficiency of car models (in miles per gallon)\n",
+        "fuel_efficiency = np.array([25, 30, 35, 40, 45])\n",
+        "\n",
+        "# Calculate average fuel efficiency\n",
+        "average_efficiency = np.mean(fuel_efficiency)\n",
+        "\n",
+        "# Calculate percentage improvement between two car models\n",
+        "model1 = fuel_efficiency[0]\n",
+        "model2 = fuel_efficiency[1]\n",
+        "\n",
+        "percentage_improvement = ((model2 - model1) / model1) * 100\n",
+        "\n",
+        "# Display the results\n",
+        "print(\"Average fuel efficiency:\", average_efficiency, \"MPG\")\n",
+        "print(\"Percentage improvement:\", percentage_improvement, \"%\")"
+      ]
+    }
+  ]
+}
