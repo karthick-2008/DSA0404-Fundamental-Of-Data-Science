@@ -1,0 +1,126 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOFbwg6mDGloDFjki0kDVmj",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/Lab%20Question%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IP-2-0SiZS7A",
+        "outputId": "ec16b7e5-3143-4693-f3cc-2602c519c68a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(1, 2, 3)\n",
+            "(4, 0, 6)\n",
+            "(7, 5, 8)\n",
+            "\n",
+            "(1, 2, 3)\n",
+            "(4, 5, 6)\n",
+            "(7, 0, 8)\n",
+            "\n",
+            "(1, 2, 3)\n",
+            "(4, 5, 6)\n",
+            "(7, 8, 0)\n",
+            "\n"
+          ]
+        }
+      ],
+      "source": [
+        "from heapq import heappush, heappop\n",
+        "\n",
+        "goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)\n",
+        "\n",
+        "def heuristic(state):\n",
+        "    return sum(\n",
+        "        state[i] != 0 and state[i] != goal[i]\n",
+        "        for i in range(9)\n",
+        "    )\n",
+        "\n",
+        "def solve(start):\n",
+        "    pq = []\n",
+        "    heappush(pq, (heuristic(start), 0, start, []))\n",
+        "    visited = set()\n",
+        "\n",
+        "    while pq:\n",
+        "        f, g, state, path = heappop(pq)\n",
+        "\n",
+        "        if state == goal:\n",
+        "            return path + [state]\n",
+        "\n",
+        "        if state in visited:\n",
+        "            continue\n",
+        "        visited.add(state)\n",
+        "\n",
+        "        zero = state.index(0)\n",
+        "        moves = []\n",
+        "\n",
+        "        if zero >= 3:\n",
+        "            moves.append(zero - 3)\n",
+        "        if zero < 6:\n",
+        "            moves.append(zero + 3)\n",
+        "        if zero % 3 != 0:\n",
+        "            moves.append(zero - 1)\n",
+        "        if zero % 3 != 2:\n",
+        "            moves.append(zero + 1)\n",
+        "\n",
+        "        for move in moves:\n",
+        "            new_state = list(state)\n",
+        "            new_state[zero], new_state[move] = (\n",
+        "                new_state[move], new_state[zero]\n",
+        "            )\n",
+        "            new_state = tuple(new_state)\n",
+        "\n",
+        "            if new_state not in visited:\n",
+        "                heappush(\n",
+        "                    pq,\n",
+        "                    (g + 1 + heuristic(new_state),\n",
+        "                     g + 1, new_state, path + [state])\n",
+        "                )\n",
+        "\n",
+        "    return None\n",
+        "\n",
+        "start = (1, 2, 3, 4, 0, 6, 7, 5, 8)\n",
+        "solution = solve(start)\n",
+        "\n",
+        "if solution:\n",
+        "    for state in solution:\n",
+        "        for i in range(0, 9, 3):\n",
+        "            print(state[i:i + 3])\n",
+        "        print()\n",
+        "else:\n",
+        "    print(\"No solution found\")"
+      ]
+    }
+  ]
+}
