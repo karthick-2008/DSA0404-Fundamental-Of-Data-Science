@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOY18BD4jbwwuDBpJ8sRLX7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/lab%20question%2014\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "94JgdiTfNXtR",
+        "outputId": "efed0437-388c-4a18-c315-07673b35afbd"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Frequency Distribution of Customer Ages:\n",
+            "Age\n",
+            "20    3\n",
+            "22    2\n",
+            "25    3\n",
+            "30    2\n",
+            "Name: count, dtype: int64\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create a Pandas DataFrame\n",
+        "data = {'Age': [20, 25, 20, 30, 25, 22, 30, 20, 25, 22]}\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Find frequency distribution of customer ages\n",
+        "frequency = df['Age'].value_counts().sort_index()\n",
+        "\n",
+        "# Display the result\n",
+        "print(\"Frequency Distribution of Customer Ages:\")\n",
+        "print(frequency)"
+      ]
+    }
+  ]
+}
