@@ -1,0 +1,72 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOYcaCZeoYs1Cax7Bon+MrI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/karthick-2008/DSA0404-Fundamental-Of-Data-Science/blob/main/lab%20question%2015\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 6,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "94JgdiTfNXtR",
+        "outputId": "fadebf6e-2a28-4e8e-c981-edea9251aaaf"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Frequency Distribution of Likes:\n",
+            "Likes\n",
+            "10    4\n",
+            "20    3\n",
+            "30    2\n",
+            "40    1\n",
+            "Name: count, dtype: int64\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import pandas as pd\n",
+        "\n",
+        "# Create a dataset\n",
+        "data = {'Likes': [10, 20, 10, 30, 20, 10, 40, 30, 20, 10]}\n",
+        "\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Calculate frequency distribution\n",
+        "frequency = df['Likes'].value_counts().sort_index()\n",
+        "\n",
+        "# Display the result\n",
+        "print(\"Frequency Distribution of Likes:\")\n",
+        "print(frequency)\n"
+      ]
+    }
+  ]
+}
